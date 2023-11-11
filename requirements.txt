@@ -1,6 +1,4 @@
 mediapipe
 numpy
-time
-autopy
 pyautogui
-cv2
+opencv-python
