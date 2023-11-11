@@ -15,13 +15,14 @@ def onMouse(event, x, y, flags, param):
 
     if event == cv2.EVENT_LBUTTONDOWN:
         startx, starty = x * 2, y * 2
+        # startx, starty = 0, 0
         k += 1
-        print("set s")
+        print(f"set l - x{startx}, y{starty}")
 
     elif event == cv2.EVENT_RBUTTONDOWN:
         endx, endy = x * 2, y * 2
         k += 1
-        print("set e")
+        print(f"set r - x{endx}, y{endy}")
 
 cv2.namedWindow("setpoint")
 cv2.setMouseCallback("setpoint", onMouse)
@@ -50,10 +51,12 @@ done = False
 pset = False
 
 linewidth = (endx - startx)
+heightwidth = (endy - starty)
 seekwidth = 200
-mul = int(linewidth / seekwidth)
+muly = int(heightwidth/seekwidth)
+mulx = int(linewidth / seekwidth)
 ptime, ctime = 0, 0
-rad = 30
+# rad = 30
 
 while True:
     _, frm = cap.read()
@@ -68,6 +71,7 @@ while True:
             point8 = i.landmark[8]
             point5 = i.landmark[5]
             point4 = i.landmark[4]  # Thumb tip
+            point12 = i.landmark[12]
 
             draw.draw_landmarks(frm, i, hnds.HAND_CONNECTIONS)
 
@@ -75,6 +79,16 @@ while True:
             horizontal_diff = int(abs(point8.x * 640 - point4.x * 640))
 
             if vertical_diff > 35:
+                if int(abs(point12.x * 640 - point4.x * 640)) < 30 and int(abs(point12.y * 480 - point4.y * 480)) < 30:
+                    if done:
+                        pyautogui.click()
+                    done = False
+                    pset = False
+                    ctime = 0
+                    ptime = 0
+                    rad = 30
+                    continue
+
                 # One-finger gesture
                 if not pset:
                     pset = True
@@ -89,21 +103,27 @@ while True:
                         done = True
 
                     cx = int(point8.x * 640)
+                    cy = int(point8.y * 640)
 
                     if cx < x:
                         cx = x
                     elif cx > (x + seekwidth):
                         cx = x + seekwidth
 
+                    if cy < y:
+                        cy = y
+                    elif cy > (y + seekwidth):
+                        cy = y + seekwidth
+
                     cv2.line(frm, (x, y), (x + seekwidth, y), (255, 0, 255), 6)
                     cv2.circle(frm, (cx, y), 9, (0, 255, 0), -1)
 
-                    pyautogui.moveTo((cx - x) * mul + startx, starty)
+                    pyautogui.moveTo((cx - x) * mulx + startx, (cy - y) * muly + starty)
 
-                else:
-                    cv2.circle(frm, (int(point8.x * 640), int(point8.y * 480)), rad, (0, 255, 255), 3)
-                    if rad > 4:
-                        rad -= 1
+                # else:
+                #     cv2.circle(frm, (int(point8.x * 640), int(point8.y * 480)), rad, (0, 255, 255), 3)
+                #     if rad > 4:
+                #         rad -= 1
 
             elif horizontal_diff > 30:
                 # Up gesture
@@ -115,8 +135,8 @@ while True:
 
             else:
                 # Not one or up or down
-                if done:
-                    pyautogui.click()
+                # if done:
+                #     pyautogui.click()
                 done = False
                 pset = False
                 ctime = 0
