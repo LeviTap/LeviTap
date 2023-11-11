@@ -13,13 +13,13 @@ k = 0
 def onMouse(event, x, y, flags, param):
     global startx, starty, endx, endy, k
 
-    if event == cv2.EVENT_LBUTTONDOWN:
+    if event == cv2.EVENT_LBUTTONDOWN and k == 0:
         startx, starty = x * 2, y * 2
         # startx, starty = 0, 0
         k += 1
         print(f"set l - x{startx}, y{starty}")
 
-    elif event == cv2.EVENT_RBUTTONDOWN:
+    elif event == cv2.EVENT_RBUTTONDOWN and k == 1:
         endx, endy = x * 2, y * 2
         k += 1
         print(f"set r - x{endx}, y{endy}")
@@ -40,6 +40,13 @@ while True:
     if cv2.waitKey(1) == 27 or k == 2:
         cv2.destroyAllWindows()
         break
+
+# startx = 2
+# starty = 2
+
+# resolution = pyautogui.size()
+# endx = resolution.width
+# endy = resolution.height
 
 hnds = mp.solutions.hands
 hnds_mesh = hnds.Hands(static_image_mode=False, min_detection_confidence=0.8, min_tracking_confidence=0.8)
@@ -82,7 +89,7 @@ while True:
                 if int(abs(point12.x * 640 - point4.x * 640)) < 30 and int(abs(point12.y * 480 - point4.y * 480)) < 30:
                     if done:
                         pyautogui.click()
-                    done = False
+                    #done = False
                     pset = False
                     ctime = 0
                     ptime = 0
@@ -137,7 +144,7 @@ while True:
                 # Not one or up or down
                 # if done:
                 #     pyautogui.click()
-                done = False
+                # done = False
                 pset = False
                 ctime = 0
                 ptime = 0
