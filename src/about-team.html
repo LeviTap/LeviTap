@@ -27,6 +27,7 @@
         header img {
             max-width: 100px;
             margin-right: 10px;
+            margin-left: 30px;
         }
 
         .team-member {
@@ -72,6 +73,46 @@
             bottom: 0;
             width: 100%;
         }
+
+                /* Dropdown Button */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+            margin-right: 50px;
+        }
+
+        .dropbtn {
+            background-color: #add8e6;
+            color: black;
+            font-style: bold;
+            padding: 16px;
+            font-size: 16px;
+            border: none;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #add8e6;
+            min-width: 140px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
     </style>
 </head>
 
@@ -81,9 +122,9 @@
         <a href="../index.html"><img src="./images/logo.jpeg" alt="LeviTap Logo"></a>
         <h1>LeviTap - Our Team</h1>
         <div class="dropdown">
-            <button class="dropbtn">Dropdown</button>
+            <button class="dropbtn">About</button>
             <div class="dropdown-content">
-                <a href="./index.html">Home</a>
+                <a href="../index.html">Home</a>
                 <a href="https://github.com/Saksham2703/saksham2703.github.io" target="_blank">GitHub Repo</a>
             </div>
         </div>
