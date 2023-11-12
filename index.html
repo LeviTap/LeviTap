@@ -25,6 +25,7 @@
         header img {
             max-width: 100px;
             margin-right: 10px;
+            margin-left: 30px;
         }
 
         .space-inside {
@@ -74,18 +75,40 @@
             color: blue; /* or set the color to the desired value */
         }
 
-        /* Dropdown styles */
+        /* Dropdown Button */
         .dropdown {
             position: relative;
             display: inline-block;
+            margin-right: 50px;
+        }
+
+        .dropbtn {
+            background-color: #add8e6;
+            color: black;
+            font-style: bold;
+            padding: 16px;
+            font-size: 16px;
+            border: none;
         }
 
         .dropdown-content {
             display: none;
             position: absolute;
-            background-color: #f9f9f9;
-            min-width: 160px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            background-color: #add8e6;
+            min-width: 140px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #ddd;
         }
 
         .dropdown:hover .dropdown-content {
@@ -99,6 +122,7 @@
         <a href="./index.html"><img src="./src/images/logo.jpeg" alt="LeviTap Logo"></a>
         <h1>LeviTap - Hand Gesture Control</h1>
         <div class="dropdown">
+            <button class="dropbtn">About</button>
             <div class="dropdown-content">
                 <a href="src/about-team.html">Our Team</a>
                 <a href="https://github.com/Saksham2703/saksham2703.github.io" target="_blank">
@@ -172,7 +196,7 @@
         <ul>
             <a href="./src/requirements.txt" download="./src/requirements.txt">Download requirements.txt</a>
             <br><br>
-            <a href="src/mac.html">Further Guide for Mac Users</a>
+            <a href="src/mac.html">Further Installation Guide for Mac Users</a>
             <br><br>
             <a href="exe/levitap-windows.zip" download="exe/levitap-windows.zip">Download python script for Windows</a>
             <br></br>
@@ -185,7 +209,9 @@
     <br></br>
     <br></br>
     <footer>
-        <p>Members: Paridhi Gupta, Saksham Jain, Soham Warke</p>
+        <p>Members: 
+            <a href="https://www.linkedin.com/in/paridhi-gupta-87613121b/" color="black">Paridhi Gupta</a>, <a href="https://www.linkedin.com/in/saksham-jain-978189239/" color="black">Saksham Jain</a>, <a href="www.linkedin.com/in/soham-w-20aa09234" color="black">Soham Warke</a>
+        </p>
     </footer>
 
 </body>
