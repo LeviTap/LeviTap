@@ -2,3 +2,4 @@ mediapipe
 numpy
 pyautogui
 opencv-python
+pyaudio

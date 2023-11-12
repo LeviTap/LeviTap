@@ -75,13 +75,17 @@ while True:
 
     if op.multi_hand_landmarks:
         for i in op.multi_hand_landmarks:
+            point0 = i.landmark[0]
             point4 = i.landmark[4]  # Thumb tip
             point5 = i.landmark[5]
+            point6 = i.landmark[6]
             point7 = i.landmark[7]
             point8 = i.landmark[8]
             point9 = i.landmark[9]
             point11 = i.landmark[11]
             point12 = i.landmark[12]
+            point13 = i.landmark[13]
+            point16 = i.landmark[16]
 
             draw.draw_landmarks(frm, i, hnds.HAND_CONNECTIONS)
 
@@ -102,8 +106,8 @@ while True:
 
                 # index above middle
                 elif point12.y > point7.y:
-                    print("12:", point12.y)
-                    print("7:", point7.y)
+         
+          
                     # One-finger gesture
                     if not pset:
                         pset = True
@@ -144,7 +148,22 @@ while True:
                 #     if rad > 4:
                 #         rad -= 1
 
+            # speech-to-text gesture
+            elif (int(abs(point9.y * 480 - point12.y * 480)) > 35) & (int(abs(point13.y * 480 - point16.y * 480)) > 35) :
+                # print("text")
+                with sr.Microphone() as source:
 
+                    recognizer = sr.Recognizer()
+                    recognizer.adjust_for_ambient_noise(source)
+                # read the audio data from the default microphone
+                    # print("Recognizing...")
+                    print('\a')
+                    audio_data = recognizer.record(source, duration=7)
+                    print('\a')
+                    # convert speech to text
+                    text = recognizer.recognize_google(audio_data)
+                    # print(text)
+                    pyautogui.typewrite(text)
             # up gesture
             elif int(abs(point9.y * 480 - point12.y * 480)) < 35:
                 # Down gesture
