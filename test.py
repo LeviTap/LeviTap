@@ -75,9 +75,12 @@ while True:
 
     if op.multi_hand_landmarks:
         for i in op.multi_hand_landmarks:
-            point8 = i.landmark[8]
-            point5 = i.landmark[5]
             point4 = i.landmark[4]  # Thumb tip
+            point5 = i.landmark[5]
+            point7 = i.landmark[7]
+            point8 = i.landmark[8]
+            point9 = i.landmark[9]
+            point11 = i.landmark[11]
             point12 = i.landmark[12]
 
             draw.draw_landmarks(frm, i, hnds.HAND_CONNECTIONS)
@@ -86,7 +89,8 @@ while True:
             horizontal_diff = int(abs(point8.x * 640 - point4.x * 640))
 
             if vertical_diff > 35:
-                if int(abs(point12.x * 640 - point4.x * 640)) < 30 and int(abs(point12.y * 480 - point4.y * 480)) < 30:
+                # click
+                if int(abs(point12.x * 640 - point4.x * 640)) < 10 and int(abs(point12.y * 480 - point4.y * 480)) < 10:
                     if done:
                         pyautogui.click()
                     #done = False
@@ -96,47 +100,53 @@ while True:
                     rad = 30
                     continue
 
-                # One-finger gesture
-                if not pset:
-                    pset = True
-                    ptime = time.time()
+                # index above middle
+                elif point12.y > point7.y:
+                    print("12:", point12.y)
+                    print("7:", point7.y)
+                    # One-finger gesture
+                    if not pset:
+                        pset = True
+                        ptime = time.time()
 
-                ctime = time.time()
+                    ctime = time.time()
 
-                if (ctime - ptime) > 1:
-                    if not done:
-                        x = int(point8.x * 640)
-                        y = int(point8.y * 480)
-                        done = True
+                    if (ctime - ptime) > 1:
+                        if not done:
+                            x = int(point8.x * 640)
+                            y = int(point8.y * 480)
+                            done = True
 
-                    cx = int(point8.x * 640)
-                    cy = int(point8.y * 640)
+                        cx = int(point8.x * 640)
+                        cy = int(point8.y * 640)
 
-                    if cx < x:
-                        cx = x
-                    elif cx > (x + seekwidth):
-                        cx = x + seekwidth
+                        if cx < x:
+                            cx = x
+                        elif cx > (x + seekwidth):
+                            cx = x + seekwidth
 
-                    if cy < y:
-                        cy = y
-                    elif cy > (y + seekwidth):
-                        cy = y + seekwidth
+                        if cy < y:
+                            cy = y
+                        elif cy > (y + seekwidth):
+                            cy = y + seekwidth
 
-                    cv2.line(frm, (x, y), (x + seekwidth, y), (255, 0, 255), 6)
-                    cv2.circle(frm, (cx, y), 9, (0, 255, 0), -1)
+                        cv2.line(frm, (x, y), (x + seekwidth, y), (255, 0, 255), 6)
+                        cv2.circle(frm, (cx, y), 9, (0, 255, 0), -1)
 
-                    pyautogui.moveTo((cx - x) * mulx + startx, (cy - y) * muly + starty)
+                        pyautogui.moveTo((cx - x) * mulx + startx, (cy - y) * muly + starty)
 
+                # up gesture
+                elif int(abs(point9.y * 480 - point12.y * 480)) > 35:
+                    pyautogui.scroll(1)
+                
                 # else:
                 #     cv2.circle(frm, (int(point8.x * 640), int(point8.y * 480)), rad, (0, 255, 255), 3)
                 #     if rad > 4:
                 #         rad -= 1
 
-            elif horizontal_diff > 30:
-                # Up gesture
-                pyautogui.scroll(1)
 
-            elif horizontal_diff < -30:
+            # up gesture
+            elif int(abs(point9.y * 480 - point12.y * 480)) < 35:
                 # Down gesture
                 pyautogui.scroll(-1)
 
