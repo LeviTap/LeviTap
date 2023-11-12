@@ -17,6 +17,14 @@
             color: #fff;
             text-align: center;
             padding: 1em;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        header img {
+            max-width: 100px;
+            margin-right: 10px;
         }
 
         .space-inside {
@@ -61,23 +69,57 @@
             border-radius: 8px;
             margin-bottom: 10px;
         }
+
+        a:visited {
+            color: blue; /* or set the color to the desired value */
+        }
+
+        /* Dropdown styles */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
     </style>
 </head>
 <body>
 
     <header>
+        <a href="./index.html"><img src="./src/images/logo.jpeg" alt="LeviTap Logo"></a>
         <h1>LeviTap - Hand Gesture Control</h1>
+        <div class="dropdown">
+            <div class="dropdown-content">
+                <a href="src/about-team.html">Our Team</a>
+                <a href="https://github.com/Saksham2703/saksham2703.github.io" target="_blank">
+                    GitHub Repo</a>
+            </div>
+        </div>
     </header>
 
     <section>
         <h2>Introduction</h2>
-        <p>Welcome to LeviTap, a program that empowers you to navigate your computer effortlessly using hand gestures as well as type using voice!
+        <p>Welcome to LeviTap, a program that empowers you to navigate your computer effortlessly using hand gestures as well as use your voice to type!
              This innovative solution allows you to control your cursor with simple and intuitive movements, enhancing your computing experience. 
              Below is a comprehensive guide to using the program effectively.</p>
 
         <h2>Getting Started</h2>
         <ol>
-            <li>Download and install HandGestureControl from our official website.</li>
+            <li>Ensure you have Python installed.</li>
+            <li>Then download the requirements.txt and run the following command on the command line / terminal.
+                <br>$pip3 install -r requirements.txt</br>
+            </li>
+            <li>Download and install the program linked below.</li>
             <li>Follow the on-screen instructions for a seamless setup.</li>
         </ol>
 
@@ -88,36 +130,39 @@
                 <ul>
                     <li>Extend your index finger and thumb to navigate on your screen.</li>
                     <img class="gesture-image" src="src/images/default_position.jpeg" alt="Default position">
-                    <li>Fold your index and middle finger to execute the scroll-up gesture.</li>
-                    <img class="gesture-image" src="src/images/scrollup.jpeg" alt="Scroll up Gesture">
-                    <li>Straighten your fingers to perform the scroll-down motion.</li>
-                    <img class="gesture-image" src="src/images/scrolldown.jpeg" alt="scroll-down">
                 </ul>
-                
-
-
             </li>
             <li>
-                <strong>Tap for Click:</strong>
+                <strong>Left Click and Double Click:</strong>
                 <ul>
                     <li>To execute a standard click, tap your thumb and middle finger; hold to double tap.</li>
                     <img class="gesture-image" src="src/images/click.jpeg" alt="Tap for Click Gesture">
+                </ul>
+                <strong>Right Click:</strong>
+                <ul>
                     <li>For a right-click, tap the thumb to the middle of the index finger while keeping the index finger extended.</li>
                 </ul>
-                <img class="gesture-image" src="src/images/navigate.jpeg" alt="Right Click">
+                <img class="gesture-image" src="src/images/right-click.jpeg" alt="Right Click">
             </li>
         </ul>
-        <li>
-            <strong>Text to Speech</strong>
+        <ul>
+            <strong>Speech to Text</strong>
             <ul>
-                <li>To execute a text to speech command for seamless typing click, hold the middle, ring and little finger up.</li>
-                <img class="gesture-image" src="src/images/speech.jpeg" alt="Text to speech Gesture">
-                <li>For a right-click, tap the thumb to the middle of the index finger while keeping the index finger extended.</li>
+                <li>To execute a speech to text command for seamless typing, do the following gesture.</li>
+                <img class="gesture-image" src="src/images/speech.jpeg" alt="Speech to Text Gesture">
             </ul>
-            <img class="gesture-image" src="src/images/navigate.jpeg" alt="Right Click">
-        </li>
+            <strong>Scroll Up:</strong>
+            <ul>
+                <li>Fold your index and middle finger to execute the scroll-up gesture.</li>
+                <img class="gesture-image" src="src/images/scrollup.jpeg" alt="Scroll up Gesture">
+            </ul>
+            <strong>Scroll Down:</strong>
+            <ul>
+                <li>Straighten your fingers to perform the scroll-down motion.</li>
+                <img class="gesture-image" src="src/images/scrolldown.jpeg" alt="scroll-down">
+            </ul>
+        </ul>
     </ul>
-
         <h2>Tips for Precision</h2>
         <ul>
             <li>Maintain a comfortable distance from your camera for accurate gesture recognition.</li>
@@ -125,9 +170,13 @@
         </ul>
         <h2>Download Links</h2>
         <ul>
-        <a href="exe/" download="levitap-windows.zip">Download python script for Windows </a>
-        <br></br>
-        <a href="exe/" download="levitap-macos.zip">Download python script for MacOs </a>
+            <a href="./src/requirements.txt" download="./src/requirements.txt">Download requirements.txt</a>
+            <br><br>
+            <a href="src/mac.html">Further Guide for Mac Users</a>
+            <br><br>
+            <a href="exe/levitap-windows.zip" download="exe/levitap-windows.zip">Download python script for Windows</a>
+            <br></br>
+            <a href="exe/levitap-macos.zip" download="exe/levitap-macos.zip">Download python script for Macos</a>
         </ul>
     </section>
 

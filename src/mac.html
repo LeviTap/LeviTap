@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LeviTap - Mac Installation Guide</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #add8e6;
+            /* Pastel Blue */
+        }
+
+        header {
+            background-color: #000000;
+            color: #fff;
+            text-align: center;
+            padding: 1em;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        header img {
+            max-width: 100px;
+            margin-right: 10px;
+        }
+
+        section {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            /* White */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        h2,
+        h3 {
+            color: #000000;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        blockquote {
+            background-color: #f5f5f5;
+            padding: 10px;
+            border-left: 5px solid #3498db;
+            /* Border color */
+            margin: 10px 0;
+        }
+
+        code {
+            background-color: #f9f9f9;
+            padding: 3px 5px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+
+        footer {
+            background-color: #000;
+            /* Black color */
+            color: #fff;
+            text-align: center;
+            padding: 0.5em;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Dropdown styles */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <a href="../index.html"><img src="./images/logo.jpeg" alt="LeviTap Logo"></a>
+        <h1>LeviTap - Hand Gesture Control</h1>
+        <div class="dropdown">
+            <div class="dropdown-content">
+                <a href="about-team.html">Our Team</a>
+                <a 
+                href="https://github.com/Saksham2703/saksham2703.github.io" 
+                target="_blank">
+                GitHub Repo</a>
+            </div>
+        </div>
+    </header>
+
+    <section>
+        <h2>Installation Guide for Mac Users</h2>
+        <blockquote>
+            <p>Welcome to LeviTap, a program that empowers you to navigate your computer effortlessly using hand
+                gestures.
+                This innovative solution allows you to control your cursor with simple and intuitive movements,
+                enhancing your computing experience. Below is a comprehensive guide to using the program effectively.
+            </p>
+        </blockquote>
+
+        <h3>Additional Installation Steps (Required)</h3>
+        <ul>
+            <li><code>xcode-select --install</code></li>
+            <li><code>brew remove portaudio</code></li>
+            <li><code>brew install portaudio</code></li>
+            <li><code>pip3 install pyaudio</code></li>
+            <li><code>brew install flak</code></li>
+        </ul>
+        <br></br>
+        <p>If you install brew but it does not work, execute the following commands:</p>
+        <ul>
+            <li><code>cd /opt/homebrew/bin/</code></li>
+            <li><code>PATH=$PATH:/opt/homebrew/bin</code></li>
+            <li><code>cd</code></li>
+            <li><code>touch .zshrc</code></li>
+            <li><code>echo export PATH=$PATH:/opt/homebrew/bin &gt;&gt; .zshrc</code></li>
+        </ul>
+    </section>
+    <br></br>
+    <br></br>
+    <footer>
+        <p>Members: Paridhi Gupta, Saksham Jain, Soham Warke</p>
+    </footer>
+
+</body>
+
+</html>
