@@ -7,48 +7,17 @@ import speech_recognition as sr
 
 x, y = 0, 0
 cx, cy = 0, 0
+pyautogui.FAILSAFE = False
 
 startx, starty, endx, endy = 0, 0, 0, 0
-k = 0
-
-def onMouse(event, x, y, flags, param):
-    global startx, starty, endx, endy, k
-
-    if event == cv2.EVENT_LBUTTONDOWN and k == 0:
-        startx, starty = x * 2, y * 2
-        # startx, starty = 0, 0
-        k += 1
-        print(f"set l - x{startx}, y{starty}")
-
-    elif event == cv2.EVENT_RBUTTONDOWN and k == 1:
-        endx, endy = x * 2, y * 2
-        k += 1
-        print(f"set r - x{endx}, y{endy}")
 
 def touchless_mouse():
-    cv2.namedWindow("setpoint")
-    cv2.setMouseCallback("setpoint", onMouse)
+    startx = 2
+    starty = 2
 
-    print('going to take screenshot! /n show only the player window clearly!')
-    time.sleep(2)
-    im = pyautogui.screenshot().convert('RGB')
-    im = np.array(im)
-    im = im[:, :, ::-1]
-
-    im = cv2.resize(im, (960, 540))
-
-    while True:
-        cv2.imshow("setpoint", im)
-        if cv2.waitKey(1) == 27 or k == 2:
-            cv2.destroyAllWindows()
-            break
-
-    # startx = 2
-    # starty = 2
-
-    # resolution = pyautogui.size()
-    # endx = resolution.width
-    # endy = resolution.height
+    resolution = pyautogui.size()
+    endx = resolution.width * 2
+    endy = resolution.height * 2
 
     hnds = mp.solutions.hands
     hnds_mesh = hnds.Hands(static_image_mode=False, min_detection_confidence=0.8, min_tracking_confidence=0.8)
@@ -175,10 +144,6 @@ def touchless_mouse():
                     pyautogui.scroll(-1)
 
                 else:
-                    # Not one or up or down
-                    # if done:
-                    #     pyautogui.click()
-                    # done = False
                     pset = False
                     ctime = 0
                     ptime = 0

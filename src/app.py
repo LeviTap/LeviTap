@@ -2,7 +2,7 @@ from flask import Flask, render_template
 from functions.touchless_mouse import touchless_mouse
 from multiprocessing import Process
 
-app = Flask("Touchless Mouse")
+app = Flask("Touchless Mouse", template_folder='../')
 
 @app.route('/')
 def index():
