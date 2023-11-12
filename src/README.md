@@ -1,5 +1,7 @@
 # madHacks-2023
 
+> Welcome to LeviTap, a program that empowers you to navigate your computer effortlessly using hand gestures. This innovative solution allows you to control your cursor with simple and intuitive movements, enhancing your computing experience. Below is a comprehensive guide to using the program effectively.
+
 **For Mac users**
 
 > xcode-select --install
