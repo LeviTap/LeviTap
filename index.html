@@ -1,83 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beautiful Website</title>
+    <title>LeviTap - Hand Gesture Control</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 20px;
+            margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: #add8e6; /* Pastel Blue */
         }
 
         header {
-            text-align: center;
-            padding: 20px;
-            background-color: #333;
+            background-color: #000000;
             color: #fff;
+            text-align: center;
+            padding: 1em;
         }
 
-        main {
+        .space-inside {
+            padding: 10px; /* Adds space inside the element */
+        }   
+
+        section {
             max-width: 800px;
             margin: 20px auto;
-        }
-
-        h1 {
-            color: #fff;
+            padding: 20px;
+            background-color: #ffffff; /* White */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
         }
 
         h2 {
+            color: #000000;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        footer {
+            background-color: #000; /* Black color */
             color: #fff;
-        }
-
-        input,
-        button {
-            margin-bottom: 10px;
-            padding: 10px;
-        }
-
-        img {
-            width: 100%;
-            height: auto;
-            margin-bottom: 10px;
-        }
-
-        figcaption {
             text-align: center;
-            color: #777;
+            padding: 0.5em;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .gesture-image {
+            max-width: 100%;
+            height: 400px;
+            border-radius: 8px;
+            margin-bottom: 10px;
         }
     </style>
 </head>
-
 <body>
+
     <header>
-        <h1>Touchless Mouse</h1>
-        <h2>Sub Title</h2>
+        <h1>LeviTap - Hand Gesture Control</h1>
     </header>
-    <main>
-        <div class="logo">
-            <a href="index.html"><img src="/Users/saksham/madHacks-2023/src/images/logo.jpeg" he><img></a>
-        </div>
-        <label for="textbox1">Text Box 1:</label>
-        <input type="text" id="textbox1" name="textbox1">
 
-        <button onclick="alert('Button Clicked!')">Click Me</button>
+    <section>
+        <h2>Introduction</h2>
+        <p>Welcome to LeviTap, a program that empowers you to navigate your computer effortlessly using hand gestures. This innovative solution allows you to control your cursor with simple and intuitive movements, enhancing your computing experience. Below is a comprehensive guide to using the program effectively.</p>
 
-        <h2>Six Images with Captions</h2>
+        <h2>Getting Started</h2>
+        <ol>
+            <li>Download and install HandGestureControl from our official website.</li>
+            <li>Follow the on-screen instructions for a seamless setup.</li>
+        </ol>
 
-        <figure>
-            <img src="image1.jpg" alt="Image 1">
-            <figcaption>Caption for Image 1</figcaption>
-        </figure>
+        <h2>Gestures</h2>
+        <ul>
+            <li>
+                <strong>Index and Thumb navigation:</strong>
+                <ul>
+                    <li>Extend your index finger and thumb to navigate on your screen.</li>
+                    <img class="gesture-image" src="src/images/default_position.jpeg" alt="Default position">
+                    <li>Fold your index and middle finger to execute the scroll-up gesture.</li>
+                    <img class="gesture-image" src="src/images/scrollup.jpeg" alt="Scroll up Gesture">
+                    <li>Straighten your fingers to perform the scroll-down motion.</li>
+                    <img class="gesture-image" src="src/images/scrolldown.jpeg" alt="scroll-down">
+                </ul>
 
-        <!-- Repeat similar structure for images 2 to 6 -->
+            </li>
+            <li>
+                <strong>Tap for Click:</strong>
+                <ul>
+                    <li>To execute a standard click, tap your thumb and middle finger; hold to double tap.</li>
+                    <img class="gesture-image" src="src/images/click.jpeg" alt="Tap for Click Gesture">
+                    <li>For a right-click, tap the thumb to the middle of the index finger while keeping the index finger extended.</li>
+                </ul>
+                <img class="gesture-image" src="src/images/navigate.jpeg" alt="Right Click">
+            </li>
+        </ul>
 
-        <label for="textbox2">Text Box 2:</label>
-        <input type="text" id="textbox2" name="textbox2">
-    </main>
+        <h2>Tips for Precision</h2>
+        <ul>
+            <li>Maintain a comfortable distance from your camera for accurate gesture recognition.</li>
+            <li>Practice fluid and deliberate hand movements for optimal control.</li>
+        </ul>
+        
+    </section>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <footer>
+        <p>Members: Paridhi Gupta, Saksham Jain, Soham Warke</p>
+    </footer>
+
 </body>
-
 </html>
