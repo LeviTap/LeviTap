@@ -3,3 +3,4 @@ numpy
 pyautogui
 opencv-python
 pyaudio
+SpeechRecognition

@@ -3,6 +3,7 @@ import numpy as np
 import time
 import pyautogui
 import cv2
+import speech_recognition as sr
 
 x, y = 0, 0
 cx, cy = 0, 0
@@ -94,7 +95,7 @@ while True:
 
             if vertical_diff > 35:
                 # click
-                if int(abs(point12.x * 640 - point4.x * 640)) < 10 and int(abs(point12.y * 480 - point4.y * 480)) < 10:
+                if int(abs(point12.x * 640 - point4.x * 640)) < 20 and int(abs(point12.y * 480 - point4.y * 480)) < 20:
                     if done:
                         pyautogui.click()
                     #done = False
@@ -104,10 +105,21 @@ while True:
                     rad = 30
                     continue
 
+                # right click
+                if int(abs(point6.x * 640 - point4.x * 640)) < 20 and int(abs(point6.y * 480 - point4.y * 480)) < 20:
+                    if done:
+                        pyautogui.rightClick()
+                    #done = False
+                    pset = False
+                    ctime = 0
+                    ptime = 0
+                    rad = 30
+                    continue
+
                 # index above middle
                 elif point12.y > point7.y:
-         
-          
+                    #print("12:", point12.y)
+                    #print("7:", point7.y)
                     # One-finger gesture
                     if not pset:
                         pset = True
@@ -141,14 +153,15 @@ while True:
 
                 # up gesture
                 elif int(abs(point9.y * 480 - point12.y * 480)) > 35:
-                    pyautogui.scroll(1)
+                    pyautogui.scroll(50)
+
                 
                 # else:
                 #     cv2.circle(frm, (int(point8.x * 640), int(point8.y * 480)), rad, (0, 255, 255), 3)
                 #     if rad > 4:
                 #         rad -= 1
 
-            # speech-to-text gesture
+            # text gesture
             elif (int(abs(point9.y * 480 - point12.y * 480)) > 35) & (int(abs(point13.y * 480 - point16.y * 480)) > 35) :
                 # print("text")
                 with sr.Microphone() as source:
@@ -164,10 +177,12 @@ while True:
                     text = recognizer.recognize_google(audio_data)
                     # print(text)
                     pyautogui.typewrite(text)
+
+
             # up gesture
             elif int(abs(point9.y * 480 - point12.y * 480)) < 35:
                 # Down gesture
-                pyautogui.scroll(-1)
+                pyautogui.scroll(-50)
 
             else:
                 # Not one or up or down
