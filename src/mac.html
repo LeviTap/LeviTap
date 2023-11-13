@@ -81,8 +81,14 @@
             width: 100%;
         }
 
-        a:visited {
-            color: blue; /* or set the color to the desired value */
+        a {
+            color: #0077cc;
+            /* LinkedIn blue */
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
         }
 
         /* Dropdown Button */
@@ -90,6 +96,7 @@
             position: relative;
             display: inline-block;
             margin-right: 50px;
+            min-width: 120px;
         }
 
         .dropbtn {
@@ -105,8 +112,8 @@
             display: none;
             position: absolute;
             background-color: #add8e6;
-            min-width: 140px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            min-width: 100px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
             z-index: 1;
         }
 
@@ -129,13 +136,18 @@
 
 <body>
     <header>
+        <!-- Logo -->
         <a href="../index.html"><img src="./images/logo.jpeg" alt="LeviTap Logo"></a>
+        <!-- Title -->
         <h1>LeviTap - Hand Gesture Control</h1>
+        <!-- Nav -->
         <div class="dropdown">
             <button class="dropbtn">About</button>
             <div class="dropdown-content">
                 <a href="about-team.html">Our Team</a>
-                <a href="https://github.com/Saksham2703/saksham2703.github.io" target="_blank">GitHub Repo</a>
+                <a href="tutorial.html">Tutorial</a>
+                <a href="https://github.com/Saksham2703/saksham2703.github.io" target="_blank">
+                    GitHub Repo</a>
             </div>
         </div>
     </header>
@@ -156,7 +168,7 @@
             <li><code>brew remove portaudio</code></li>
             <li><code>brew install portaudio</code></li>
             <li><code>pip3 install pyaudio</code></li>
-            <li><code>brew install flak</code></li>
+            <li><code>brew install flac</code></li>
         </ul>
         <br></br>
         <p>If you install brew but it does not work, execute the following commands:</p>
@@ -168,13 +180,16 @@
             <li><code>echo export PATH=$PATH:/opt/homebrew/bin &gt;&gt; .zshrc</code></li>
         </ul>
     </section>
+
     <br></br>
     <br></br>
+    <br></br>
+
     <footer>
         <p>Members:
-            <a href="https://www.linkedin.com/in/paridhi-gupta-87613121b/" color="black">Paridhi Gupta</a>, <a
-                href="https://www.linkedin.com/in/saksham-jain-978189239/" color="black">Saksham Jain</a>, <a
-                href="www.linkedin.com/in/soham-w-20aa09234" color="black">Soham Warke</a>
+            <a href="https://www.linkedin.com/in/paridhi-gupta-87613121b/" target="_blank">Paridhi Gupta</a>, <a
+                href="https://www.linkedin.com/in/saksham-jain-978189239/" target="_blank">Saksham Jain</a>, <a
+                href="https://www.linkedin.com/in/soham-w-20aa09234" target="_blank">Soham Warke</a>
         </p>
     </footer>
 

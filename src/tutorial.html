@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LeviTap - Hand Gesture Control</title>
+    <title>LeviTap - Tutorial</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #add8e6; /* Pastel Blue */
+            background-color: #add8e6;
+            /* Pastel Blue */
         }
 
         header {
@@ -28,17 +30,18 @@
             margin-left: 30px;
         }
 
-        .space-inside {
-            padding: 10px; /* Adds space inside the element */
-        }   
-
-        section {
+        .section {
             max-width: 800px;
             margin: 20px auto;
             padding: 20px;
-            background-color: #ffffff; /* White */
+            background-color: #ffffff;
+            /* White */
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
+        }
+
+        .gesture-image {
+            max-width: 150px;
         }
 
         h2 {
@@ -65,20 +68,14 @@
         }
 
         footer {
-            background-color: #000; /* Black color */
+            background-color: #000;
+            /* Black color */
             color: #fff;
             text-align: center;
             padding: 0.5em;
             position: fixed;
             bottom: 0;
             width: 100%;
-        }
-
-        .gesture-image {
-            max-width: 100%;
-            height: 400px;
-            border-radius: 8px;
-            margin-bottom: 10px;
         }
 
         /* Dropdown Button */
@@ -103,7 +100,7 @@
             position: absolute;
             background-color: #add8e6;
             min-width: 100px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
             z-index: 1;
         }
 
@@ -123,59 +120,64 @@
         }
     </style>
 </head>
+
 <body>
 
     <header>
         <!-- Logo -->
-        <a href="./index.html"><img src="./src/images/logo.jpeg" alt="LeviTap Logo"></a>
+        <a href="../index.html"><img src="./images/logo.jpeg" alt="LeviTap Logo"></a>
         <!-- Title -->
         <h1>LeviTap - Hand Gesture Control</h1>
         <!-- Nav -->
         <div class="dropdown">
             <button class="dropbtn">About</button>
             <div class="dropdown-content">
-                <a href="src/about-team.html">Our Team</a>
-                <a href="src/tutorial.html">Tutorial</a>
+                <a href="about-team.html">Our Team</a>
+                <a href="tutorial.html">Tutorial</a>
                 <a href="https://github.com/Saksham2703/saksham2703.github.io" target="_blank">
                     GitHub Repo</a>
             </div>
         </div>
     </header>
 
-    <section>
-        <h2>Introduction</h2>
-        <p>Welcome to LeviTap, a program that empowers you to navigate your computer effortlessly using hand gestures as well as use your voice to type!
-             This innovative solution allows you to control your cursor with simple and intuitive movements, enhancing your computing experience. 
-             For a comprehensive guide to using the program effectively, click <a href="./src/tutorial.html">here</a>.</p>
+    <h1 style="text-align: center;">Gestures</h1>
 
-        <h2>Getting Started</h2>
-        <ol>
-            <li>Ensure you have Python installed.</li>
-            <li>Then download the requirements.txt and run the following command on the command line / terminal.
-                <br>$pip3 install -r requirements.txt</br>
-            </li>
-            <li>Download and install the program linked below.</li>
-            <li>Follow the on-screen instructions for a seamless setup.</li>
-        </ol>
+    <div class="section">
+        <h3>Index and Thumb navigation:</h3>
+        <p>Extend your index finger and thumb to navigate on your screen.</p>
+        <img class="gesture-image" src="./images/default_position.jpeg" alt="Default position">
+    </div>
 
-        <h2>Tips for Precision</h2>
-        <ul>
-            <li>Maintain a comfortable distance from your camera for accurate gesture recognition.</li>
-            <li>Practice fluid and deliberate hand movements for optimal control.</li>
-        </ul>
-        <h2>Download Links</h2>
-        <ul>
-            <a href="./src/requirements.txt" download="./src/requirements.txt">Download requirements.txt</a>
-            <br><br>
-            <a href="src/mac.html">Further Installation Guide for Mac Users</a>
-            <br><br>
-            <a href="exe/levitap-windows.zip" download="exe/levitap-windows.zip">Download python script for Windows</a>
-            <br></br>
-            <a href="exe/levitap-macos.zip" download="exe/levitap-macos.zip">Download python script for Macos</a>
-        </ul>
-    </section>
+    <div class="section">
+        <h3>Left Click and Double Click:</h3>
+        <p>To execute a standard click, tap your thumb and middle finger; hold to double tap.</p>
+        <img class="gesture-image" src="./images/click.jpeg" alt="Tap for Click Gesture">
+    </div>
 
-    <br></br>
+    <div class="section">
+        <h3>Right Click:</h3>
+        <p>For a right-click, tap the thumb to the middle of the index finger while keeping the index finger extended.</p>
+        <img class="gesture-image" src="./images/right-click.jpeg" alt="Right Click">
+    </div>
+
+    <div class="section">
+        <h3>Speech to Text:</h3>
+        <p>To execute a speech to text command for seamless typing, do the following gesture.</p>
+        <img class="gesture-image" src="./images/speech.jpeg" alt="Speech to Text Gesture">
+    </div>
+
+    <div class="section">
+        <h3>Scroll Up:</h3>
+        <p>Fold your index and middle finger to execute the scroll-up gesture.</p>
+        <img class="gesture-image" src="./images/scrollup.jpeg" alt="Scroll up Gesture">
+    </div>
+
+    <div class="section">
+        <h3>Scroll Down:</h3>
+        <p>Straighten your fingers to perform the scroll-down motion.</p>
+        <img class="gesture-image" src="./images/scrolldown.jpeg" alt="scroll-down">
+    </div>
+
     <br></br>
     <br></br>
     <br></br>
@@ -189,4 +191,5 @@
     </footer>
 
 </body>
+
 </html>
